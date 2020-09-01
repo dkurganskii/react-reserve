@@ -21,7 +21,6 @@ Home.getInitialProps = async () => {
 	const response = await axios.get(url);
 	return { products: response.data };
 	//return response data as an object
-	return { hello: 'world' };
 	//this object will be merged with existing props
 };
 
