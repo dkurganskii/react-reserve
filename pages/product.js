@@ -1,8 +1,14 @@
 import axios from 'axios';
+import ProductSummary from '../components/Product/ProductSummary';
+import ProductAttributes from '../components/Product/ProductAttributes';
 
 function Product({ product }) {
-	console.log({ product });
-	return <React.Fragment>product</React.Fragment>;
+	return (
+		<React.Fragment>
+			<ProductSummary {...product} />
+			<ProductAttributes {...product} />
+		</React.Fragment>
+	);
 }
 
 Product.getInitialProps = async ({ query: { _id } }) => {
