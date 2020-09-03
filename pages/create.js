@@ -60,7 +60,7 @@ function CreateProduct() {
 			console.log({ response });
 			setProduct(INITIAL_PRODUCT);
 			setSuccess(true);
-		} catch (eror) {
+		} catch (error) {
 			catchErrors(error, setError);
 		} finally {
 			setLoading(false);
@@ -75,7 +75,6 @@ function CreateProduct() {
 			</Header>
 			<Form loading={loading} error={Boolean(error)} success={success} onSubmit={handleSubmit}>
 				<Message error header="Oops!" content={error} />
-
 				<Message success icon="check" header="Success!" content="Your product has been posted" />
 				<Form.Group widths="equal">
 					<Form.Field
