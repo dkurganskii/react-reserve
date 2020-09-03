@@ -20,10 +20,16 @@ export default async (req, res) => {
 	}
 };
 
-async function handlePostRequest() {
-	const { name, price, mediaUrl, description } = req.body;
-	if (!name || !price || !mediaUrl || !description) {
-		return res.status(422).send('Product missing one ore more fields');
+async function handleGetRequest(req, res) {
+	const { _id } = req.query;
+	const product = await Product.findOne({ _id });
+	res.status(200).json(product);
+}
+
+async function handlePostRequest(req, res) {
+	const { name, price, description, mediaUrl } = req.body;
+	if (!name || !price || !description || !mediaUrl) {
+		return res.status(422).send('Product missing one or more fields');
 	}
 	const product = await new Product({
 		name,
@@ -32,12 +38,6 @@ async function handlePostRequest() {
 		mediaUrl
 	}).save();
 	res.status(201).json(product);
-}
-
-async function handleGetRequest(req, res) {
-	const { _id } = req.query;
-	const product = await Product.findOne({ _id });
-	res.status(200).json(product);
 }
 
 async function handleDeleteRequest(req, res) {

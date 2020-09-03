@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, TextAria, Button, Image, Message, Header, Icon, TextArea } from 'semantic-ui-react';
+import { Form, Input, TextArea, Button, Image, Message, Header, Icon } from 'semantic-ui-react';
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
 
@@ -42,7 +42,8 @@ function CreateProduct() {
 		const mediaUrl = await handleImageUpload();
 		console.log({ mediaUrl });
 		const url = `${baseUrl}/api/product`;
-		const payload = { ...product, mediaUrl };
+		const { name, price, description } = product;
+		const payload = { name, price, description, mediaUrl };
 		const response = await axios.post(url, payload);
 		console.log({ response });
 		setLoading(false);
@@ -54,7 +55,7 @@ function CreateProduct() {
 		<React.Fragment>
 			<Header as="h2" block>
 				<Icon name="add" color="orange" />
-				Crate New Product
+				Create New Product
 			</Header>
 			<Form loading={loading} success={success} onSubmit={handleSubmit}>
 				<Message success icon="check" header="Success!" content="Your product has been posted" />
@@ -81,8 +82,8 @@ function CreateProduct() {
 					<Form.Field
 						control={Input}
 						name="media"
-						label="Media"
 						type="file"
+						label="Media"
 						accept="image/*"
 						content="Select Image"
 						onChange={handleChange}
@@ -94,8 +95,8 @@ function CreateProduct() {
 					name="description"
 					label="Description"
 					placeholder="Description"
-					value={product.description}
 					onChange={handleChange}
+					value={product.description}
 				/>
 				<Form.Field
 					control={Button}
