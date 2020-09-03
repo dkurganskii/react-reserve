@@ -4,7 +4,7 @@ module.exports = {
 		MONGO_SRV:
 			'mongodb+srv://ReedBarger:dimon1992@reactreserve.ul15u.mongodb.net/reactreserve?retryWrites=true&w=majority',
 		JWT_SECRET: '<insert-jwt-secret>',
-		CLOUDINARY_URL: '<insert-cloudinary-url>',
+		CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dsk44vpjt/image/upload',
 		STRIPE_SECRET_KEY: '<insert-stripe-secret-key>'
 	}
 };
