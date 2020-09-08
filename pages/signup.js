@@ -1,7 +1,5 @@
 import React from 'react';
-import { Form, Input, TextArea, Button, Image, Message, Header, Icon, Segment } from 'semantic-ui-react';
-import axios from 'axios';
-import baseUrl from '../utils/baseUrl';
+import { Form, Button, Message, Icon, Segment } from 'semantic-ui-react';
 import catchErrors from '../utils/catchErrors';
 import Link from 'next/link';
 
@@ -14,6 +12,8 @@ const INITIAL_USER = {
 function Signup() {
 	const [ user, setUser ] = React.useState(INITIAL_USER);
 	const [ disabled, setDisabled ] = React.useState(true);
+	const [ loading, setLoading ] = React.useState(false);
+	const [ error, setError ] = React.useState('');
 
 	React.useEffect(
 		() => {
@@ -28,10 +28,25 @@ function Signup() {
 		setUser((prevState) => ({ ...prevState, [name]: value }));
 	}
 
+	async function handleSubmit(event) {
+		event.preventDefault();
+		try {
+			setLoading(true);
+			setError('');
+			console.log(user);
+			//Make request to signup user
+		} catch (error) {
+			catchErrors(error, setError);
+		} finally {
+			setLoading(false);
+		}
+	}
+
 	return (
 		<React.Fragment>
 			<Message attached icon="settings" header="Get Started!" content="Create a new account" color="teal" />
-			<Form>
+			<Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}>
+				<Message error header="Oops!" content={error} />
 				<Segment>
 					<Form.Input
 						fluid
@@ -68,7 +83,13 @@ function Signup() {
 						onChange={handleChange}
 					/>
 
-					<Button disabled={disabled} icon="signup" type="submit" color="orange" content="Signup" />
+					<Button
+						disabled={disabled || loading}
+						icon="signup"
+						type="submit"
+						color="orange"
+						content="Signup"
+					/>
 				</Segment>
 			</Form>
 			<Message attached="bottom" warning>
