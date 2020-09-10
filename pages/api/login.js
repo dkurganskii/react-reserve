@@ -1,9 +1,9 @@
-import connectDB from '../../utils/connectDb';
+import connectDb from '../../utils/connectDb';
 import User from '../../models/User';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-connectDB();
+connectDb();
 
 export default async (req, res) => {
 	const { email, password } = req.body;
