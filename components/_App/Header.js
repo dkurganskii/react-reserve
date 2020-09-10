@@ -8,6 +8,7 @@ Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 function Header({ user }) {
+	console.log(user);
 	const router = useRouter();
 
 	function isActive(route) {
@@ -23,7 +24,6 @@ function Header({ user }) {
 						ReactReserve
 					</Menu.Item>
 				</Link>
-
 				<Link href="/cart">
 					<Menu.Item header active={isActive('/cart')}>
 						<Icon name="cart" size="large" />
@@ -62,7 +62,6 @@ function Header({ user }) {
 								Login
 							</Menu.Item>
 						</Link>
-
 						<Link href="/signup">
 							<Menu.Item header active={isActive('/signup')}>
 								<Icon name="signup" size="large" />
