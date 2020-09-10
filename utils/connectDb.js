@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const connection = {};
 
-async function connectDB() {
+async function connectDb() {
 	if (connection.isConnected) {
 		// Use existing database connection
 		console.log('Using existing connection');
