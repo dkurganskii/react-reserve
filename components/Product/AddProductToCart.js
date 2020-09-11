@@ -1,10 +1,10 @@
 import React from 'react';
 import { Input } from 'semantic-ui-react';
-import { useRouter, Router } from 'next/router';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
-import cookie from 'js-cookie';
 import catchErrors from '../../utils/catchErrors';
+import cookie from 'js-cookie';
 
 function AddProductToCart({ user, productId }) {
 	const [ quantity, setQuantity ] = React.useState(1);
@@ -40,6 +40,7 @@ function AddProductToCart({ user, productId }) {
 			setLoading(false);
 		}
 	}
+
 	return (
 		<Input
 			type="number"
