@@ -5,6 +5,7 @@ module.exports = {
 			'mongodb+srv://ReedBarger:dimon1992@reactreserve.ul15u.mongodb.net/reactreserve?retryWrites=true&w=majority',
 		JWT_SECRET: 'snbdsbdhdsndsdsdhsh',
 		CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dsk44vpjt/image/upload',
-		STRIPE_SECRET_KEY: '<insert-stripe-secret-key>'
+		STRIPE_SECRET_KEY:
+			'sk_test_51HQawUGNUbPf2U60SgiZhqVkNKLKdQ8GiqWwSv6INXjGeZi83rUgeGyYTgL1koDQfHvyIvUcsMF2TUqLiRZ3UPO5004AYwbIGr'
 	}
 };
