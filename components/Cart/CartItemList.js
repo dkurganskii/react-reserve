@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 function CartItemList({ products, user, handleRemoveFromCart, success }) {
 	const router = useRouter();
+
 	function mapCartProductsToItems(products) {
 		return products.map((p) => ({
 			childKey: p.product._id,
@@ -12,11 +13,12 @@ function CartItemList({ products, user, handleRemoveFromCart, success }) {
 				</Item.Header>
 			),
 			image: p.product.mediaUrl,
-			meta: `${p.quantity} x ${p.product.price}`,
-			fluid: true,
+			meta: `${p.quantity} x $${p.product.price}`,
+			fluid: 'true',
 			extra: <Button basic icon="remove" floated="right" onClick={() => handleRemoveFromCart(p.product._id)} />
 		}));
 	}
+
 	if (success) {
 		return (
 			<Message success header="Success!" content="Your order and payment has been accepted" icon="star outline" />

@@ -7,6 +7,7 @@ function CartSummary({ products, handleCheckout, success }) {
 	const [ cartAmount, setCartAmount ] = React.useState(0);
 	const [ stripeAmount, setStripeAmount ] = React.useState(0);
 	const [ isCartEmpty, setCartEmpty ] = React.useState(false);
+
 	React.useEffect(
 		() => {
 			const { cartTotal, stripeTotal } = calculateCartTotal(products);
@@ -16,6 +17,7 @@ function CartSummary({ products, handleCheckout, success }) {
 		},
 		[ products ]
 	);
+
 	return (
 		<React.Fragment>
 			<Divider />
@@ -24,7 +26,7 @@ function CartSummary({ products, handleCheckout, success }) {
 				<StripeCheckout
 					name="React Reserve"
 					amount={stripeAmount}
-					image={products.length > 0 ? products[0].product.mediUrl : ''}
+					image={products.length > 0 ? products[0].product.mediaUrl : ''}
 					currency="USD"
 					shippingAddress={true}
 					billingAddress={true}

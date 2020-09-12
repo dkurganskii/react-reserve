@@ -4,9 +4,9 @@ import CartItemList from '../components/Cart/CartItemList';
 import CartSummary from '../components/Cart/CartSummary';
 import { parseCookies } from 'nookies';
 import axios from 'axios';
+import cookie from 'js-cookie';
 import baseUrl from '../utils/baseUrl';
 import catchErrors from '../utils/catchErrors';
-import cookie from 'js-cookie';
 
 function Cart({ products, user }) {
 	const [ cartProducts, setCartProducts ] = React.useState(products);

@@ -20,7 +20,7 @@ const OrderSchema = new mongoose.Schema(
 				}
 			}
 		],
-		emai: {
+		email: {
 			type: String,
 			required: true
 		},

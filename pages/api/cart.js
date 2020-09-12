@@ -72,16 +72,13 @@ async function handlePutRequest(req, res) {
 
 async function handleDeleteRequest(req, res) {
 	const { productId } = req.query;
-
 	if (!('authorization' in req.headers)) {
 		return res.status(401).send('No authorization token');
 	}
 	try {
 		const { userId } = jwt.verify(req.headers.authorization, process.env.JWT_SECRET);
 		const cart = await Cart.findOneAndUpdate(
-			{
-				user: userId
-			},
+			{ user: userId },
 			{ $pull: { products: { product: productId } } },
 			{ new: true }
 		).populate({
