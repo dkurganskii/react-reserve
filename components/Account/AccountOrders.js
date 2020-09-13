@@ -18,13 +18,13 @@ function AccountOrders({ orders }) {
 							<Label content={order.email} icon="mail" basic horizontal style={{ marginLeft: '1em' }} />
 						</List.Header>
 						<List>
-							{order.product.map((p) => (
+							{order.products.map((p) => (
 								<List.Item>
 									<Image avatar src={p.product.mediaUrl} />
 									<List.Content>
 										<List.Header>{p.product.name}</List.Header>
 										<List.Description>
-											{p.quantity} x ${p.product.price}
+											{p.quantity} · ${p.product.price}
 										</List.Description>
 									</List.Content>
 									<List.Content floated="right">

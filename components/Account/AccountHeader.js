@@ -11,7 +11,6 @@ function AccountHeader({ role, email, name, createdAt }) {
 				style={{ textTransform: 'capitalize' }}
 				content={role}
 			/>
-
 			<Header inverted textAlign="center" as="h1" icon>
 				<Icon name="user" />
 				{name}
