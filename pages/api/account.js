@@ -38,6 +38,6 @@ async function handleGetRequest(req, res) {
 
 async function handlePutRequest(req, res) {
 	const { _id, role } = req.body;
-	await User.findByIdAndUpdate({ _id }, { role });
-	res.status(203).send('User Updated');
+	await User.findOneAndUpdate({ _id }, { role });
+	res.status(203).send('User updated');
 }

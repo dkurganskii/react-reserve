@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import baseUrl from '../../utils/baseUrl';
-import cookie from 'js-cookie';
 import { Header, Checkbox, Table, Icon } from 'semantic-ui-react';
+import cookie from 'js-cookie';
+import baseUrl from '../../utils/baseUrl';
 import formatDate from '../../utils/formatDate';
 
 function AccountPermissions() {
 	const [ users, setUsers ] = React.useState([]);
+
 	React.useEffect(() => {
 		getUsers();
 	}, []);
@@ -36,15 +37,15 @@ function AccountPermissions() {
 						<Table.HeaderCell>Role</Table.HeaderCell>
 					</Table.Row>
 				</Table.Header>
-				<Table.Body>{users.map((user) => <UserPermisson key={user._id} user={user} />)}</Table.Body>
+
+				<Table.Body>{users.map((user) => <UserPermission key={user._id} user={user} />)}</Table.Body>
 			</Table>
 		</div>
 	);
 }
 
-function UserPermisson({ user }) {
+function UserPermission({ user }) {
 	const [ admin, setAdmin ] = React.useState(user.role === 'admin');
-
 	const isFirstRun = React.useRef(true);
 
 	React.useEffect(
