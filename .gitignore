@@ -6,3 +6,5 @@ next.config.*
  now.json
 next.config.js
 next.config.js
+
+.vercel
